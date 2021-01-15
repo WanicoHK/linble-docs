@@ -1,6 +1,45 @@
-# linble-docs
+# zima-linble-demo
 
-Linble T260S 4G Router And Serial Communication Server
+This is a demo of how to use Linble router to rotate a cell of a ZIMA slim vending machine.
+
+## Demo
+
+<img alt="homepage" src="./images/image-07.png" width="800">
+
+To run the demo server, you may need to [install Go](https://golang.org/dl/) for your Windows/Mac/Linux system first.
+
+Open terminal (Mac) or Command Prompt (Windows) and enter this command to get the demo program:
+
+```
+go get -v github.com/WanicoHK/zima-linble-demo
+```
+
+If you don't have a server, you can use your computer as a server.
+First, connect to the Linble router via Wifi. Log in to the router admin page and
+set the Com2Server Server IP Address to your computer LAN address (for example, 192.168.10.100),
+and port 33333 (default).
+
+Run the demo server:
+
+```
+zima-linble-demo
+```
+
+To get list of clients:
+
+```
+curl 127.0.0.1:12345 --data '{"method":"Server.List","params":[]}'
+```
+
+To rotate a cell (1, 1) of a client:
+
+```
+curl 127.0.0.1:12345 --data '{"method":"Server.Rotate","params":[{"client_id":"WCHY","row":1,"column":1}]}'
+```
+
+## Linble router
+
+Linble T260S 4G Router And Serial Communication Server may look like this:
 
 <img alt="T260S" src="./images/image-00.jpg" width="300"> <img alt="T260S" src="./images/image-01.jpg" width="300">
 
