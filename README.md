@@ -2,4 +2,4 @@
 
 Linble T260S 4G Router And Serial Communication Server
 
-![T260S](./images/image-00.jpg)
+<img alt="T260S" src="./images/image-00.jpg" width="300">
