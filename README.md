@@ -27,19 +27,17 @@ Linble T260S 4G Router And Serial Communication Server
 <img alt="homepage" src="./images/image-05.png" width="600">
 
 <blockquote>
-
 1. Enable "Com Server Setup".<br />
-啟用「Com Server Setup」。
-
+啟用「Com Server Setup」。<br />
+<br />
 2. Select "Transparent" for "COM Server".<br />
-「COM Server」選擇「Transparent」。
-
+「COM Server」選擇「Transparent」。<br />
+<br />
 3. Enter your unique name in "Host ID", such as "TEST123".<br />
-在「Host ID」輸入你的唯一名稱，如「TEST123」。
-
+在「Host ID」輸入你的唯一名稱，如「TEST123」。<br />
+<br />
 4. Turn On "Client Mode"<br />
 打開「Client Mode」
-
 </blockquote>
 
 5. For security reasons, it is recommended to change Wifi password or turn off Wifi after configuration.<br />
