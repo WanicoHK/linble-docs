@@ -4,11 +4,12 @@ This is a demo of how to use Linble router to rotate a cell of a ZIMA slim vendi
 
 ## Demo
 
-<img alt="homepage" src="./images/image-07.png" width="800">
+<img alt="homepage" src="./images/image-07.png" width="800"><br />
+*zima-linble-demo running on Mac. See [Windows](./images/image-08.png).*
 
 To run the demo server, you may need to [install Go](https://golang.org/dl/) for your Windows/Mac/Linux system first.
 
-Open terminal (Mac) or Command Prompt (Windows) and enter this command to get the demo program:
+Open terminal (Mac/Linux) or Command Prompt (Windows) and enter this command to get the demo program:
 
 ```
 go get -v github.com/WanicoHK/zima-linble-demo
