@@ -37,6 +37,8 @@ To rotate a cell (1, 1) of a client:
 curl 127.0.0.1:12345 --data '{"method":"Server.Rotate","params":[{"client_id":"WCHY","row":1,"column":1}]}'
 ```
 
+[<img src="./images/video-00.jpg" width="300">](https://wanico.oss-cn-hongkong.aliyuncs.com/videos/video-00.mp4)
+
 ## Linble router
 
 Linble T260S 4G Router And Serial Communication Server may look like this:
