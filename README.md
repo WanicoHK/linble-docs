@@ -72,7 +72,7 @@ Data: see request data of the Function table above
 
 Checksum: (Constant + Size + Function + Frame + Data...) & 0xff
 
-Try here: https://play.golang.org/p/gDd3umTFWCl
+Try here: https://play.golang.org/p/pHtnZucro2k
 
 ### Response
 
