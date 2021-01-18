@@ -56,7 +56,8 @@ This is an example of rotating cell at (1, 1):
 
 Size = 4 (Constant + Size + Function + Frame) + 2 (Checksum + Constant) + Data Length
 
-Function
+Function and request data:
+
 |Function|Action|Data|Data|
 |-       |-     |-   |-   |
 |0x05    |Rotate a cell                         | row | column |
@@ -87,6 +88,7 @@ After waiting maximum 6 seconds (0x3C), nothing dropped (0x00).
 Size = 4 (Constant + Size + Function + Frame) + 2 (Checksum + Constant) + Data Length
 
 Function and response data:
+
 |Function|Action|Data|Data|Data|Data|
 |-       |-     |-   |-   |-   |-   |
 |0x05    |Rotate a cell                         | row | column | number of 1/10 seconds | 0x01 if rotated and passed fall-check) |
