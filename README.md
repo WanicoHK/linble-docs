@@ -43,6 +43,65 @@ Once the rotate command is sent, the vending machine motor rotates:
 [<img src="./images/video-00.jpg" width="300">](https://wanico.oss-cn-hongkong.aliyuncs.com/videos/video-00.mp4)<br />
 *Click image to watch video*
 
+## Protocol
+
+### Request
+
+This is an example of rotating cell at (1, 1):
+
+|   |Constant|Size|Function|Frame|Data|Data|Checksum|Constant|
+|-  |-       |-   |-       |-    |-   |-   |-       |-       |
+|Hex|0xA8    |0x08|0x05    |0xD9 |0x01|0x01|0x90    |0xFE    |
+|Dec|168     |8   |5       |217  |1   |1   |144     |254     |
+
+Size = 4 (Constant + Size + Function + Frame) + 2 (Checksum + Constant) + Data Length
+
+Function
+|Function|Action|Data|Data|
+|-       |-     |-   |-   |
+|0x05    |Rotate a cell                         | row | column |
+|0x09    |Unlock a cell                         | row | column |
+|0x07    |Check before rotate or unlock a cell  | row | column |
+|0x04    |Get status of refrigerator            | 2 | 2 |
+|0x08    |Get replies of recent 5 calls         | 1 | 1 |
+
+Frame: arbitrary number between 0 and 255
+
+Data: see request data of the Function table above
+
+Checksum: (Constant + Size + Function + Frame + Data...) & 0xff
+
+Try here: https://play.golang.org/p/gDd3umTFWCl
+
+### Response
+
+This is an example of reply of rotating cell at (1, 1):
+
+|   |Constant|Size|Function|Frame|Data|Data|Data|Data|Checksum|Constant|
+|-  |-       |-   |-       |-    |-   |-   |-   |-   |-       |-       |
+|Hex|0xA8    |0x0A|0x05    |0xD9 |0x01|0x01|0x3C|0x00|0xCE    |0xFE    |
+|Dec|168     |10  |5       |217  |1   |1   |60  |0   |206     |254     |
+
+After waiting maximum 6 seconds (0x3C), nothing dropped (0x00).
+
+Size = 4 (Constant + Size + Function + Frame) + 2 (Checksum + Constant) + Data Length
+
+Function and response data:
+|Function|Action|Data|Data|Data|Data|
+|-       |-     |-   |-   |-   |-   |
+|0x05    |Rotate a cell                         | row | column | number of 1/10 seconds | 0x01 if rotated and passed fall-check) |
+|0x09    |Unlock a cell                         | row | column | number of 1/10 seconds | 0x01 if successfully unlocked) |
+|0x07    |Check before rotate or unlock a cell  | row | column | number of 1/10 seconds | 0x01 if success) |
+|0x04    |Get status of refrigerator            | expected temp in °C | actual temp in °C | 0x01 if refrigerator is operating | - |
+
+Note: function 0x08 will return replies of last 5 rotate and unlock calls.
+
+Frame: same as the frame of the request
+
+Data: see response data of the Function table above
+
+Checksum: (Constant + Size + Function + Frame + Data...) & 0xff
+
 ## Linble router
 
 Linble T260S 4G Router And Serial Communication Server may look like this:
